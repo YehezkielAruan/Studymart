@@ -692,6 +692,128 @@ main { position: relative; z-index: 1; }
 }
 .ts-filter-btn.active, .ts-filter-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 
+/* ===== WALLET ===== */
+.wallet-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 32px 0 40px; flex-wrap: wrap; gap: 20px;
+}
+.wallet-title {
+  font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 8px;
+}
+.wallet-sub { color: var(--ink-2); font-size: 15px; }
+.wallet-withdraw-btn {
+  background: var(--mint-dark); color: white;
+  border: none; padding: 13px 26px; border-radius: 999px;
+  font-family: inherit; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: opacity 0.15s;
+  box-shadow: 4px 4px 0 rgba(42,141,110,0.3);
+}
+.wallet-withdraw-btn:hover { opacity: 0.85; }
+
+.wallet-cards {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;
+  margin-bottom: 36px;
+}
+.wallet-card {
+  background: var(--paper); border: 1.5px solid var(--line);
+  border-radius: 16px; padding: 22px 24px;
+}
+.wallet-card-main {
+  background: var(--ink); border-color: var(--ink);
+  box-shadow: 5px 5px 0 rgba(26,24,22,0.2);
+}
+.wallet-card-main .wallet-card-label,
+.wallet-card-main .wallet-card-sub { color: rgba(246,241,228,0.6); }
+.wallet-card-main .wallet-card-amount { color: var(--highlight); }
+.wallet-card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+.wallet-card-amount { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+.wallet-card-amount-sm { font-size: 22px; color: var(--mint-dark); }
+.wallet-card-sub { font-size: 11px; color: var(--ink-3); }
+
+.wallet-breakdown {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 16px; padding: 24px 28px; margin-bottom: 32px;
+}
+.wallet-section-title {
+  font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+  letter-spacing: -0.015em; margin-bottom: 18px;
+}
+.wallet-breakdown-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px dashed var(--line);
+  font-size: 14px; color: var(--ink-2);
+}
+.wallet-breakdown-row:last-child { border-bottom: none; }
+.wallet-breakdown-total {
+  font-weight: 600; color: var(--ink); font-size: 16px;
+  padding-top: 14px; border-top: 2px solid var(--ink) !important;
+  border-bottom: none !important;
+}
+
+.wallet-history {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 16px; padding: 24px 28px;
+}
+.wallet-empty { text-align: center; padding: 48px 0; }
+.wallet-tx-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.wallet-tx-item:last-child { border-bottom: none; }
+.wallet-tx-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.wallet-tx-icon.sale { background: var(--mint); }
+.wallet-tx-icon.withdraw { background: var(--coral-soft); }
+.wallet-tx-info { flex: 1; }
+.wallet-tx-title { font-weight: 500; font-size: 14px; margin-bottom: 3px; }
+.wallet-tx-meta { font-size: 12px; color: var(--ink-3); }
+.wallet-tx-amount { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; }
+.wallet-tx-amount.credit { color: var(--mint-dark); }
+.wallet-tx-amount.debit { color: var(--coral); }
+
+@media (max-width: 768px) {
+  .wallet-cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== PROFILE MENU ===== */
+.nav-actions { position: relative; }
+.profile-menu {
+  display: none;
+  position: absolute; top: calc(100% + 10px); right: 0;
+  background: var(--paper); border: 1.5px solid var(--ink);
+  border-radius: 16px; padding: 8px;
+  box-shadow: 6px 6px 0 var(--ink);
+  min-width: 220px; z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
+.profile-menu.visible { display: block; }
+.profile-menu-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 8px 14px;
+}
+.profile-menu-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--highlight); border: 1.5px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600;
+  flex-shrink: 0;
+}
+.profile-menu-name { font-weight: 600; font-size: 14px; }
+.profile-menu-email { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+.profile-menu-divider { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
+.profile-menu-item {
+  padding: 9px 12px; border-radius: 8px;
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  transition: background 0.12s; color: var(--ink);
+}
+.profile-menu-item:hover { background: var(--cream-2); }
+.profile-menu-item.signout { color: var(--coral); }
+.profile-menu-item.signout:hover { background: #fdeee8; }
+
 @media (max-width: 768px) {
   nav.top { padding: 12px 16px; }
   .nav-links { display: none; }
@@ -734,7 +856,24 @@ main { position: relative; z-index: 1; }
       <span class="cart-count" id="cartCount">0</span>
     </button>
     <button class="nav-cta" id="signInBtn" onclick="showScreen('signin')">Sign In</button>
-    <div class="user-avatar" id="userAvatar" onclick="handleSignOut()">A</div>
+    <div class="user-avatar" id="userAvatar" onclick="toggleProfileMenu()">A</div>
+    <div class="profile-menu" id="profileMenu">
+      <div class="profile-menu-header">
+        <div class="profile-menu-avatar" id="profileMenuAvatar">A</div>
+        <div>
+          <div class="profile-menu-name" id="profileMenuName">Pengguna</div>
+          <div class="profile-menu-email" id="profileMenuEmail">pengguna@email.com</div>
+        </div>
+      </div>
+      <div class="profile-menu-divider"></div>
+      <div class="profile-menu-item" onclick="showToast('👤','Halaman profil segera hadir!');closeProfileMenu()">👤 Profil Saya</div>
+      <div class="profile-menu-item" onclick="showScreen('wallet');closeProfileMenu()">💰 Dompet Saya</div>
+      <div class="profile-menu-item" onclick="showToast('📦','Pembelian saya segera hadir!');closeProfileMenu()">📦 Pembelian Saya</div>
+      <div class="profile-menu-item" onclick="showScreen('sell');closeProfileMenu()">💸 Catatan Saya</div>
+      <div class="profile-menu-item" onclick="showToast('⚙️','Pengaturan segera hadir!');closeProfileMenu()">⚙️ Pengaturan</div>
+      <div class="profile-menu-divider"></div>
+      <div class="profile-menu-item signout" onclick="handleSignOut()">🚪 Sign Out</div>
+    </div>
   </div>
 </nav>
 
@@ -757,12 +896,12 @@ main { position: relative; z-index: 1; }
         <option>Psychology</option>
         <option>Economics</option>
       </select>
-      <button class="search-btn" onclick="showScreen('browse')">Search</button>
+      <button class="search-btn" onclick="doSearch()">Search</button>
     </div>
     <div class="stats">
       <div class="stat"><span class="stat-num">48K+</span><span class="stat-label">Notes listed</span></div>
       <div class="stat"><span class="stat-num">120K</span><span class="stat-label">Students helped</span></div>
-      <div class="stat"><span class="stat-num">$2.4M</span><span class="stat-label">Paid to sellers</span></div>
+      <div class="stat"><span class="stat-num">Rp 38,4M</span><span class="stat-label">Dibayar ke penjual</span></div>
       <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Avg rating</span></div>
     </div>
   </div>
@@ -817,11 +956,11 @@ main { position: relative; z-index: 1; }
         <label class="filter-option"><input type="checkbox" /> Economics <span class="filter-count">89</span></label>
       </div>
       <div class="filter-group">
-        <div class="filter-label">Price</div>
-        <label class="filter-option"><input type="radio" name="price" checked /> Any price</label>
-        <label class="filter-option"><input type="radio" name="price" /> Under $5</label>
-        <label class="filter-option"><input type="radio" name="price" /> $5 – $15</label>
-        <label class="filter-option"><input type="radio" name="price" /> $15+</label>
+        <div class="filter-label">Harga</div>
+        <label class="filter-option"><input type="radio" name="price" checked /> Semua harga</label>
+        <label class="filter-option"><input type="radio" name="price" /> Di bawah Rp 80.000</label>
+        <label class="filter-option"><input type="radio" name="price" /> Rp 80.000 – 240.000</label>
+        <label class="filter-option"><input type="radio" name="price" /> Rp 240.000+</label>
       </div>
       <div class="filter-group">
         <div class="filter-label">Rating</div>
@@ -913,7 +1052,7 @@ main { position: relative; z-index: 1; }
     </div>
     <aside>
       <div class="purchase-card">
-        <div class="price-big" id="detailPrice">$9.99</div>
+        <div class="price-big" id="detailPrice">Rp 159.000</div>
         <div class="price-cents">One-time purchase · instant download</div>
         <div class="seller-block">
           <div class="avatar" style="width:46px;height:46px;font-size:15px;">AL</div>
@@ -953,10 +1092,10 @@ main { position: relative; z-index: 1; }
     <aside>
       <div class="order-summary">
         <h3>Order Summary</h3>
-        <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
-        <div class="summary-line"><span>Platform fee</span><span>$0.00</span></div>
+        <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">Rp 0</span></div>
+        <div class="summary-line"><span>Platform fee</span><span>Rp 0</span></div>
         <hr class="summary-divider" />
-        <div class="summary-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+        <div class="summary-total"><span>Total</span><span id="cartTotal">Rp 0</span></div>
         <div class="promo-row">
           <input class="promo-input" type="text" placeholder="Promo code" />
           <button class="promo-btn">Apply</button>
@@ -1011,9 +1150,9 @@ main { position: relative; z-index: 1; }
         <h3>Your order</h3>
         <div id="checkoutItems"></div>
         <div style="padding-top:14px;">
-          <div class="summary-line"><span>Subtotal</span><span id="checkoutSubtotal">$0.00</span></div>
-          <div class="summary-line"><span>Platform fee</span><span>$0.00</span></div>
-          <div class="summary-total" style="margin-top:10px;padding-top:14px;border-top:1px solid var(--ink);"><span>Total</span><span id="checkoutTotal">$0.00</span></div>
+          <div class="summary-line"><span>Subtotal</span><span id="checkoutSubtotal">Rp 0</span></div>
+          <div class="summary-line"><span>Platform fee</span><span>Rp 0</span></div>
+          <div class="summary-total" style="margin-top:10px;padding-top:14px;border-top:1px solid var(--ink);"><span>Total</span><span id="checkoutTotal">Rp 0</span></div>
         </div>
       </div>
     </aside>
@@ -1026,14 +1165,7 @@ main { position: relative; z-index: 1; }
     <div class="success-icon"></div>
     <h1>You're all <em>set!</em></h1>
     <p>Your notes are ready to download. Good luck with your studies! 🎓</p>
-    <div class="download-card">
-      <div class="download-thumb">PDF</div>
-      <div class="download-info">
-        <strong>Complete A-Level Biology Notes</strong>
-        <div class="meta">PDF · 148 pages · by Alex L.</div>
-      </div>
-      <button class="btn-download">↓ Download</button>
-    </div>
+    <div id="successDownloads"></div>
     <div style="padding:20px;background:var(--highlight-soft);border-radius:12px;border:1px solid var(--highlight);text-align:center;">
       <strong style="font-family:'Fraunces',serif;font-size:18px;">Rate your purchase</strong>
       <p style="font-size:13px;color:var(--ink-2);margin-top:4px;">Help other students find great notes</p>
@@ -1121,13 +1253,13 @@ main { position: relative; z-index: 1; }
       </button>
     </div>
     <div class="sell-earning-card">
-      <div class="earn-big">$847</div>
-      <div class="earn-label">avg. seller earns per year</div>
+      <div class="earn-big">Rp 13,5 jt</div>
+      <div class="earn-label">rata-rata seller dapat per tahun</div>
       <div class="earn-breakdown">
-        <div class="earn-item"><span>Your cut per sale</span><span>85%</span></div>
+        <div class="earn-item"><span>Bagian kamu per penjualan</span><span>85%</span></div>
         <div class="earn-item"><span>Platform fee</span><span>15%</span></div>
-        <div class="earn-item"><span>Payout frequency</span><span>Weekly</span></div>
-        <div class="earn-item"><span>Min. payout</span><span>$10</span></div>
+        <div class="earn-item"><span>Jadwal pembayaran</span><span>Mingguan</span></div>
+        <div class="earn-item"><span>Min. pencairan</span><span>Rp 50.000</span></div>
       </div>
     </div>
   </div>
@@ -1212,14 +1344,14 @@ main { position: relative; z-index: 1; }
     <div class="form-group">
       <label class="form-label">Set your price *</label>
       <div class="price-presets">
-        <span class="price-preset" onclick="selectPrice(this, '$2.99')">$2.99</span>
-        <span class="price-preset active" onclick="selectPrice(this, '$4.99')">$4.99</span>
-        <span class="price-preset" onclick="selectPrice(this, '$7.99')">$7.99</span>
-        <span class="price-preset" onclick="selectPrice(this, '$9.99')">$9.99</span>
-        <span class="price-preset" onclick="selectPrice(this, '$14.99')">$14.99</span>
-        <span class="price-preset" onclick="selectPrice(this, '$19.99')">$19.99</span>
+        <span class="price-preset" onclick="selectPrice(this, 'Rp 25.000')">Rp 25.000</span>
+        <span class="price-preset active" onclick="selectPrice(this, 'Rp 49.000')">Rp 49.000</span>
+        <span class="price-preset" onclick="selectPrice(this, 'Rp 75.000')">Rp 75.000</span>
+        <span class="price-preset" onclick="selectPrice(this, 'Rp 99.000')">Rp 99.000</span>
+        <span class="price-preset" onclick="selectPrice(this, 'Rp 149.000')">Rp 149.000</span>
+        <span class="price-preset" onclick="selectPrice(this, 'Rp 199.000')">Rp 199.000</span>
       </div>
-      <input class="form-input" type="text" id="sellPrice" value="$4.99" style="margin-top:10px;max-width:160px;" placeholder="Custom price" />
+      <input class="form-input" type="text" id="sellPrice" value="Rp 49.000" style="margin-top:10px;max-width:180px;" placeholder="Harga custom" />
     </div>
     <div class="submit-row">
       <button class="btn-submit" onclick="submitListing()">Publish Listing</button>
@@ -1240,12 +1372,76 @@ main { position: relative; z-index: 1; }
       <div class="lp-meta">PDF · Submitted just now · Under Review</div>
       <div class="lp-price" id="livePrice">$4.99</div>
     </div>
-    <div style="display:flex;gap:12px;justify-content:center;">
-      <button class="btn-submit" onclick="showScreen('home')">Back to Home</button>
-      <button class="btn-preview-submit" onclick="showScreen('sell')">List Another</button>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-submit" onclick="showScreen('wallet')">💰 Lihat Dompet</button>
+      <button class="btn-preview-submit" onclick="showScreen('home')">Kembali ke Home</button>
+      <button class="btn-preview-submit" onclick="showScreen('sell')">Upload Lagi</button>
     </div>
   </div>
 </div>
+<!-- ===== WALLET ===== -->
+<div class="screen" id="screen-wallet">
+  <div class="wallet-header">
+    <div>
+      <div class="eyebrow">💰 Admin Wallet</div>
+      <h1 class="wallet-title">Dompet Saya</h1>
+      <p class="wallet-sub">Pantau penghasilan & riwayat transaksi kamu</p>
+    </div>
+    <button class="wallet-withdraw-btn" onclick="doWithdraw()">💸 Tarik Dana</button>
+  </div>
+
+  <!-- Balance Cards -->
+  <div class="wallet-cards">
+    <div class="wallet-card wallet-card-main">
+      <div class="wallet-card-label">Saldo Tersedia</div>
+      <div class="wallet-card-amount" id="walletBalance">Rp 0</div>
+      <div class="wallet-card-sub">Siap dicairkan</div>
+    </div>
+    <div class="wallet-card">
+      <div class="wallet-card-label">Total Pendapatan</div>
+      <div class="wallet-card-amount wallet-card-amount-sm" id="walletTotal">Rp 0</div>
+      <div class="wallet-card-sub">Sepanjang waktu</div>
+    </div>
+    <div class="wallet-card">
+      <div class="wallet-card-label">Sudah Dicairkan</div>
+      <div class="wallet-card-amount wallet-card-amount-sm" id="walletWithdrawn">Rp 0</div>
+      <div class="wallet-card-sub">Total penarikan</div>
+    </div>
+    <div class="wallet-card">
+      <div class="wallet-card-label">Catatan Terjual</div>
+      <div class="wallet-card-amount wallet-card-amount-sm" id="walletSales">0</div>
+      <div class="wallet-card-sub">Total transaksi</div>
+    </div>
+  </div>
+
+  <!-- Earnings breakdown -->
+  <div class="wallet-breakdown">
+    <div class="wallet-section-title">Rincian Pendapatan</div>
+    <div class="wallet-breakdown-row">
+      <span>Gross penjualan</span><span id="wbGross">Rp 0</span>
+    </div>
+    <div class="wallet-breakdown-row">
+      <span>Platform fee (15%)</span><span id="wbFee" style="color:var(--coral);">− Rp 0</span>
+    </div>
+    <div class="wallet-breakdown-row wallet-breakdown-total">
+      <span>Bersih kamu (85%)</span><span id="wbNet">Rp 0</span>
+    </div>
+  </div>
+
+  <!-- Transaction History -->
+  <div class="wallet-history">
+    <div class="wallet-section-title">Riwayat Transaksi</div>
+    <div id="walletTxList">
+      <div class="wallet-empty">
+        <div style="font-size:48px;margin-bottom:12px;">💳</div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;margin-bottom:8px;">Belum ada transaksi</div>
+        <div style="color:var(--ink-3);font-size:14px;">Upload dan jual catatan kamu untuk mulai mendapatkan penghasilan!</div>
+        <button class="btn-primary" style="width:auto;padding:12px 28px;margin-top:20px;" onclick="showScreen('sell')">Mulai Jual</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== SUBJECTS ===== -->
 <div class="screen" id="screen-subjects">
   <div class="subjects-hero">
@@ -1613,6 +1809,13 @@ main { position: relative; z-index: 1; }
 
 <script>
 // ===== DATA =====
+// Kurs: 1 USD ≈ 16.000 IDR
+const USD_TO_IDR = 16000;
+function toRp(usd) {
+  const rp = Math.round(usd * USD_TO_IDR / 1000) * 1000;
+  return 'Rp ' + rp.toLocaleString('id-ID');
+}
+
 const NOTES = [
   { id:1, title:'Complete A-Level Biology Notes', subject:'Biology', tag:'mint', author:'Alex L.', pages:148, price:9.99, rating:4.9, reviews:312, thumb:'Biology\nComplete Notes', verified:true },
   { id:2, title:'Psychology — Memory & Cognition', subject:'Psychology', tag:'pink', author:'Sarah M.', pages:62, price:6.99, rating:4.8, reviews:184, thumb:'Psychology\nMemory', verified:true },
@@ -1626,7 +1829,16 @@ const NOTES = [
 
 let cart = [];
 let isSignedIn = false;
+let currentUser = null;
 let selectedNote = NOTES[0];
+
+// ===== WALLET STATE =====
+let wallet = {
+  balance: 0,      // saldo tersedia (setelah fee, siap dicairkan)
+  totalEarned: 0,  // total gross
+  withdrawn: 0,    // total sudah dicairkan
+  transactions: [] // riwayat
+};
 
 // ===== INIT =====
 function init() {
@@ -1634,11 +1846,22 @@ function init() {
   renderGrid('browseGrid', NOTES);
   renderGrid('subjectFeaturedGrid', NOTES);
   renderGrid('topSellerNotesGrid', [...NOTES].sort((a,b) => b.rating - a.rating).slice(0,4));
+  // Attach filter listeners
+  document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', applyBrowseFilters);
+  });
+  document.querySelectorAll('.filter-option input[type="radio"]').forEach(rb => {
+    rb.addEventListener('change', applyBrowseFilters);
+  });
 }
 
 function renderGrid(containerId, notes) {
   const el = document.getElementById(containerId);
   if(!el) return;
+  if(notes.length === 0) {
+    el.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink-3);font-family:\'Fraunces\',serif;font-size:20px;">Tidak ada catatan ditemukan 🔍</div>';
+    return;
+  }
   el.innerHTML = notes.map(n => `
     <div class="note-card" onclick="openDetail(${n.id})">
       ${n.verified ? '<div class="verified-pill">Verified</div>' : ''}
@@ -1647,7 +1870,7 @@ function renderGrid(containerId, notes) {
       <div class="note-title">${n.title}</div>
       <div class="note-meta">by ${n.author} · ${n.pages} pages · PDF</div>
       <div class="note-bottom">
-        <span class="note-price">$${n.price.toFixed(2)}</span>
+        <span class="note-price">${toRp(n.price)}</span>
         <span class="note-rating">⭐ ${n.rating} (${n.reviews})</span>
       </div>
     </div>
@@ -1661,6 +1884,63 @@ function showScreen(name) {
   if(s) { s.classList.add('active'); window.scrollTo(0,0); }
   if(name === 'cart') renderCart();
   if(name === 'checkout') renderCheckout();
+  if(name === 'wallet') renderWallet();
+  closeProfileMenu();
+}
+
+// ===== SEARCH =====
+function doSearch() {
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+  const subjectEl = document.querySelector('.search-bar select');
+  const subject = subjectEl ? subjectEl.value : 'All Subjects';
+  let filtered = NOTES;
+  if(subject && subject !== 'All Subjects') {
+    filtered = filtered.filter(n => n.subject === subject);
+  }
+  if(keyword) {
+    filtered = filtered.filter(n =>
+      n.title.toLowerCase().includes(keyword) ||
+      n.subject.toLowerCase().includes(keyword) ||
+      n.author.toLowerCase().includes(keyword)
+    );
+  }
+  showScreen('browse');
+  document.querySelector('.browse-header h1').textContent =
+    keyword ? `Hasil: "${keyword}"` : (subject !== 'All Subjects' ? subject + ' Notes' : 'All Study Notes');
+  document.querySelector('.results-meta').textContent = filtered.length + ' hasil ditemukan';
+  renderGrid('browseGrid', filtered);
+}
+
+// ===== BROWSE FILTER =====
+function applyBrowseFilters() {
+  const subjectCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+  const subjectLabels = ['Biology','Chemistry','Mathematics','History','Psychology','Economics'];
+  const checkedSubjects = [];
+  subjectCheckboxes.forEach(cb => {
+    const text = cb.parentElement.textContent.trim();
+    const matched = subjectLabels.find(s => text.startsWith(s));
+    if(matched && cb.checked) checkedSubjects.push(matched);
+  });
+
+  const priceRadio = document.querySelector('.filter-option input[type="radio"]:checked');
+  const priceLabel = priceRadio ? priceRadio.parentElement.textContent.trim() : '';
+
+  let filtered = NOTES;
+
+  if(checkedSubjects.length > 0) {
+    filtered = filtered.filter(n => checkedSubjects.includes(n.subject));
+  }
+
+  if(priceLabel.includes('80.000 –')) {
+    filtered = filtered.filter(n => { const rp = n.price * USD_TO_IDR; return rp >= 80000 && rp <= 240000; });
+  } else if(priceLabel.includes('bawah')) {
+    filtered = filtered.filter(n => n.price * USD_TO_IDR < 80000);
+  } else if(priceLabel.includes('+')) {
+    filtered = filtered.filter(n => n.price * USD_TO_IDR > 240000);
+  }
+
+  document.querySelector('.results-meta').textContent = filtered.length + ' hasil ditemukan';
+  renderGrid('browseGrid', filtered);
 }
 
 // ===== DETAIL =====
@@ -1668,7 +1948,7 @@ function openDetail(id) {
   selectedNote = NOTES.find(n => n.id === id) || NOTES[0];
   document.getElementById('detailTitle').textContent = selectedNote.title;
   document.getElementById('detailSubject').textContent = selectedNote.subject;
-  document.getElementById('detailPrice').textContent = '$' + selectedNote.price.toFixed(2);
+  document.getElementById('detailPrice').textContent = toRp(selectedNote.price);
   document.getElementById('detailThumbText').innerHTML = selectedNote.thumb.replace('\n','<br/>');
   showScreen('detail');
 }
@@ -1724,7 +2004,7 @@ function renderCart() {
       <div class="cart-item-info">
         <div class="cart-item-title">${n.title}</div>
         <div class="cart-item-by">by ${n.author} · ${n.pages} pages · PDF</div>
-        <div class="cart-item-price">$${n.price.toFixed(2)}</div>
+        <div class="cart-item-price">${toRp(n.price)}</div>
       </div>
       <button class="cart-remove" onclick="removeFromCart(${i})">✕</button>
     </div>
@@ -1742,8 +2022,8 @@ function removeFromCart(idx) {
 
 function updateCartTotals() {
   const total = cart.reduce((s,n) => s + n.price, 0);
-  document.getElementById('cartSubtotal').textContent = '$' + total.toFixed(2);
-  document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('cartSubtotal').textContent = toRp(total);
+  document.getElementById('cartTotal').textContent = toRp(total);
 }
 
 function renderCheckout() {
@@ -1751,18 +2031,116 @@ function renderCheckout() {
   items.innerHTML = cart.map(n => `
     <div class="summary-item">
       <div class="title">${n.title}</div>
-      <div class="by">by ${n.author} · $${n.price.toFixed(2)}</div>
+      <div class="by">by ${n.author} · ${toRp(n.price)}</div>
     </div>
   `).join('');
   const total = cart.reduce((s,n) => s + n.price, 0);
-  document.getElementById('checkoutSubtotal').textContent = '$' + total.toFixed(2);
-  document.getElementById('checkoutTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('checkoutSubtotal').textContent = toRp(total);
+  document.getElementById('checkoutTotal').textContent = toRp(total);
 }
 
 function completeCheckout() {
+  const purchased = [...cart];
+  // Credit wallet for each item sold (seller gets 85%)
+  purchased.forEach(n => {
+    const gross = n.price * USD_TO_IDR;
+    const fee = Math.round(gross * 0.15);
+    const net = gross - fee;
+    wallet.balance += net;
+    wallet.totalEarned += gross;
+    wallet.transactions.unshift({
+      type: 'sale',
+      title: n.title,
+      buyer: 'Pembeli Anonim',
+      gross, fee, net,
+      date: new Date()
+    });
+  });
+
   cart = [];
   updateCartBadge();
+
+  // Render success downloads
+  const downloadsEl = document.getElementById('successDownloads');
+  if(downloadsEl) {
+    downloadsEl.innerHTML = purchased.map(n => `
+      <div class="download-card">
+        <div class="download-thumb">PDF</div>
+        <div class="download-info">
+          <strong>${n.title}</strong>
+          <div class="meta">PDF · ${n.pages} pages · by ${n.author}</div>
+        </div>
+        <button class="btn-download">↓ Download</button>
+      </div>
+    `).join('');
+  }
   showScreen('success');
+}
+
+// ===== WALLET =====
+function renderWallet() {
+  document.getElementById('walletBalance').textContent = toRp(wallet.balance / USD_TO_IDR);
+  document.getElementById('walletTotal').textContent = toRp(wallet.totalEarned / USD_TO_IDR);
+  document.getElementById('walletWithdrawn').textContent = toRp(wallet.withdrawn / USD_TO_IDR);
+  document.getElementById('walletSales').textContent = wallet.transactions.filter(t => t.type === 'sale').length;
+
+  const gross = wallet.totalEarned;
+  const fee = Math.round(gross * 0.15);
+  const net = gross - fee;
+  document.getElementById('wbGross').textContent = gross > 0 ? toRp(gross / USD_TO_IDR) : 'Rp 0';
+  document.getElementById('wbFee').textContent = fee > 0 ? '− ' + toRp(fee / USD_TO_IDR) : '− Rp 0';
+  document.getElementById('wbNet').textContent = net > 0 ? toRp(net / USD_TO_IDR) : 'Rp 0';
+
+  const listEl = document.getElementById('walletTxList');
+  if(wallet.transactions.length === 0) {
+    listEl.innerHTML = `<div class="wallet-empty">
+      <div style="font-size:48px;margin-bottom:12px;">💳</div>
+      <div style="font-family:'Fraunces',serif;font-size:22px;margin-bottom:8px;">Belum ada transaksi</div>
+      <div style="color:var(--ink-3);font-size:14px;">Upload dan jual catatan kamu untuk mulai mendapatkan penghasilan!</div>
+      <button class="btn-primary" style="width:auto;padding:12px 28px;margin-top:20px;" onclick="showScreen('sell')">Mulai Jual</button>
+    </div>`;
+    return;
+  }
+  listEl.innerHTML = wallet.transactions.map(tx => {
+    const d = new Date(tx.date);
+    const dateStr = d.toLocaleDateString('id-ID', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    if(tx.type === 'sale') {
+      return `<div class="wallet-tx-item">
+        <div class="wallet-tx-icon sale">📥</div>
+        <div class="wallet-tx-info">
+          <div class="wallet-tx-title">${tx.title}</div>
+          <div class="wallet-tx-meta">Penjualan · ${dateStr} · Fee 15% sudah dipotong</div>
+        </div>
+        <div class="wallet-tx-amount credit">+ ${toRp(tx.net / USD_TO_IDR)}</div>
+      </div>`;
+    } else {
+      return `<div class="wallet-tx-item">
+        <div class="wallet-tx-icon withdraw">💸</div>
+        <div class="wallet-tx-info">
+          <div class="wallet-tx-title">Penarikan Dana</div>
+          <div class="wallet-tx-meta">${dateStr}</div>
+        </div>
+        <div class="wallet-tx-amount debit">− ${toRp(tx.amount / USD_TO_IDR)}</div>
+      </div>`;
+    }
+  }).join('');
+}
+
+function doWithdraw() {
+  if(wallet.balance < 50000) {
+    showToast('⚠️', 'Saldo minimum pencairan adalah Rp 50.000');
+    return;
+  }
+  const amount = wallet.balance;
+  wallet.withdrawn += amount;
+  wallet.balance = 0;
+  wallet.transactions.unshift({
+    type: 'withdraw',
+    amount,
+    date: new Date()
+  });
+  renderWallet();
+  showToast('✅', 'Penarikan ' + toRp(amount / USD_TO_IDR) + ' berhasil diproses!');
 }
 
 function selectPM(el) {
@@ -1783,21 +2161,64 @@ function switchAuthTab(tab) {
 }
 
 function handleSignIn() {
+  const emailEl = document.querySelector('#authSignIn input[type="email"]');
+  const firstEl = document.querySelector('#authRegister input[placeholder="Alex"]');
+  const lastEl = document.querySelector('#authRegister input[placeholder="Johnson"]');
+  const email = emailEl ? emailEl.value || 'pengguna@email.com' : 'pengguna@email.com';
+  const firstName = firstEl ? firstEl.value : '';
+  const lastName = lastEl ? lastEl.value : '';
+  const name = (firstName + ' ' + lastName).trim() || email.split('@')[0];
+  const initials = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2) || 'A';
+
   isSignedIn = true;
+  currentUser = { name, email, initials };
+
+  // Update avatar
   document.getElementById('signInBtn').style.display = 'none';
-  document.getElementById('userAvatar').classList.add('visible');
-  showToast('👋', 'Welcome back! You\'re signed in.');
+  const avatar = document.getElementById('userAvatar');
+  avatar.classList.add('visible');
+  avatar.textContent = initials;
+
+  // Update profile menu
+  document.getElementById('profileMenuAvatar').textContent = initials;
+  document.getElementById('profileMenuName').textContent = name;
+  document.getElementById('profileMenuEmail').textContent = email;
+
+  showToast('👋', 'Selamat datang kembali, ' + name + '!');
   showScreen('home');
 }
 
 function handleSignOut() {
-  if(confirm('Sign out?')) {
+  closeProfileMenu();
+  if(confirm('Yakin mau sign out?')) {
     isSignedIn = false;
+    currentUser = null;
     document.getElementById('signInBtn').style.display = 'inline-flex';
-    document.getElementById('userAvatar').classList.remove('visible');
-    showToast('✓', 'Signed out successfully.');
+    const avatar = document.getElementById('userAvatar');
+    avatar.classList.remove('visible');
+    avatar.textContent = 'A';
+    showToast('✓', 'Berhasil sign out.');
   }
 }
+
+function toggleProfileMenu() {
+  const menu = document.getElementById('profileMenu');
+  menu.classList.toggle('visible');
+}
+
+function closeProfileMenu() {
+  const menu = document.getElementById('profileMenu');
+  if(menu) menu.classList.remove('visible');
+}
+
+// Close profile menu when clicking outside
+document.addEventListener('click', function(e) {
+  const avatar = document.getElementById('userAvatar');
+  const menu = document.getElementById('profileMenu');
+  if(menu && avatar && !avatar.contains(e.target) && !menu.contains(e.target)) {
+    menu.classList.remove('visible');
+  }
+});
 
 // ===== SELL =====
 function triggerUpload() {
@@ -1824,10 +2245,10 @@ function selectPrice(el, price) {
 function submitListing() {
   const title = document.getElementById('sellTitle').value || 'My Study Notes';
   const subject = document.getElementById('sellSubject').value || 'General';
-  const price = document.getElementById('sellPrice').value || '$4.99';
+  const priceStr = document.getElementById('sellPrice').value || 'Rp 49.000';
   document.getElementById('liveTitle').textContent = title;
   document.getElementById('liveTag').textContent = subject || 'Notes';
-  document.getElementById('livePrice').textContent = price;
+  document.getElementById('livePrice').textContent = priceStr;
   showScreen('sell-success');
 }
 
@@ -1867,7 +2288,7 @@ function browseSubject(subject) {
   document.querySelector('.browse-header h1').textContent = subject + ' Notes';
   const filtered = NOTES.filter(n => n.subject === subject);
   renderGrid('browseGrid', filtered.length > 0 ? filtered : NOTES);
-  document.querySelector('.results-meta').textContent = (filtered.length || NOTES.length) + ' results found';
+  document.querySelector('.results-meta').textContent = (filtered.length || NOTES.length) + ' hasil ditemukan';
 }
 
 function filterFeatured(el, subject) {
